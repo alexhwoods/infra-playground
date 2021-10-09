@@ -1,2 +1,2 @@
 config:
-  gcp:project: atomic-commits
+  gcp:project: kms-example-328512
