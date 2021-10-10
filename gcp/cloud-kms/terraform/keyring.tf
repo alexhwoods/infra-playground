@@ -5,7 +5,7 @@ variable "location" {
 
 resource "google_kms_key_ring" "key_ring_1" {
   project  = "kms-example-328512"
-  name     = "key_ring_1"
+  name     = "key_ring_2"
   location = var.location
 }
 

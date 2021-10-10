@@ -6,7 +6,7 @@ resource "google_kms_crypto_key" "asymmetric_key_1" {
   purpose  = "ASYMMETRIC_DECRYPT"
 
   version_template {
-    algorithm = "RSA_DECRYPT_OAEP_2048_SHA1"
+    algorithm = "RSA_DECRYPT_OAEP_2048_SHA256"
   }
 }
 
