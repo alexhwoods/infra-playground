@@ -2,6 +2,7 @@ newline() {
   echo ""
 }
 
+export GCP_PROJECT=kms-example-328512
 TF_DIR=~/experiments/infra-playground/gcp/cloud-kms/terraform
 DIR=$(mktemp -d)
 cd $DIR
