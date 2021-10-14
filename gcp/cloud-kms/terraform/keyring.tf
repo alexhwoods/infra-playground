@@ -1,8 +1,3 @@
-variable "location" {
-  type    = string
-  default = "us-east1"
-}
-
 resource "google_kms_key_ring" "example_key_ring" {
   project  = "kms-example-328512"
   name     = "example_key_ring"
