@@ -2,7 +2,7 @@
 
 resource "google_kms_crypto_key" "asymmetric_key_1" {
   name     = "asymmetric_key_1"
-  key_ring = google_kms_key_ring.key_ring_1.self_link
+  key_ring = google_kms_key_ring.example_key_ring.self_link
   purpose  = "ASYMMETRIC_DECRYPT"
 
   version_template {
