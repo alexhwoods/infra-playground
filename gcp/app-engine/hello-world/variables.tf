@@ -1,9 +1,7 @@
 variable "location" {
-  type    = string
-  default = "us-east1"
+  type = string
 }
 
 variable "project" {
-  type    = string
-  default = "rational-terra-329310"
+  type = string
 }
