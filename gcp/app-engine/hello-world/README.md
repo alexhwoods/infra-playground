@@ -15,3 +15,18 @@ $ python main.py
 $ curl http://localhost:8080
 Hello World!%
 ```
+
+## Deploy with `gcloud`
+```bash
+cd app
+
+gcloud app deploy app.yaml --project=$GCP_PROJECT
+gcloud app browse --project=$GCP_PROJECT
+```
+
+
+## How To in Terraform
+
+## Related Examples
+- [terraform-appengine](https://github.com/bhidalto/terraform-appengine)
+
