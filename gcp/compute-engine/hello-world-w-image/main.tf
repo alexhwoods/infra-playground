@@ -1,24 +1,7 @@
 module "container-vm" {
   source  = "terraform-google-modules/container-vm/google"
   version = "2.0.0"
-  # insert the 1 required variable here
 }
-
-/**
- * Copyright 2018 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 provider "google" {
 }
@@ -30,10 +13,8 @@ locals {
 module "gce-container" {
   source = "github.com/terraform-google-modules/terraform-google-container-vm"
 
-  # cos_image_name = var.cos_image_name
-
   container = {
-    image = "gcr.io/google-samples/hello-app:1.0"
+    image = "nginxdemos/hello"
 
     env = [
       {
@@ -41,10 +22,7 @@ module "gce-container" {
         value = "Hello World!"
       },
     ]
-
   }
-
-  # restart_policy = "Always"
 }
 
 resource "google_compute_instance" "vm" {
