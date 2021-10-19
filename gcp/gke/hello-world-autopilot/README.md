@@ -22,6 +22,6 @@ $ k run nginx --image=nginx --context=$(terraform output -raw cluster_name)
 
 ### Cleanup
 ```bash
-$ k ctx -d $(terraform output -raw cluster_name)
+$ k ctx -u && k ctx -d $(terraform output -raw cluster_name)
 $ terraform destroy
 ```
