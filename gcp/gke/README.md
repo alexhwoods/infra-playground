@@ -1,4 +1,14 @@
-### Get the credentials
+# GKE Examples
+
+For any one of these directories
+```bash
+$ cd hello-world-autopilot
+$ terraform init
+$ terraform apply -auto-approve
+```
+
+Once that's complete
+## Get the credentials
 ```bash
 gcloud container clusters get-credentials \
   --region=$(terraform output -raw region) \
@@ -20,7 +30,7 @@ $ k run nginx --image=nginx --context=$(terraform output -raw cluster_name)
 ```
 
 
-### Cleanup
+## Cleanup
 ```bash
 $ k ctx -u && k ctx -d $(terraform output -raw cluster_name)
 $ terraform destroy
