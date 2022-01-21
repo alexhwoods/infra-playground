@@ -1,0 +1,3 @@
+name: read-only-user
+runtime: nodejs
+description: A minimal TypeScript Pulumi program
