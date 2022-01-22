@@ -2,12 +2,9 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-function isAuthorized() {
-  return true;
-}
-
-export default function Home() {
-  const authorized = isAuthorized();
+export default function Home({ authorized }) {
+  // console.log(`authorized: ${JSON.stringify(authorized, null, 2)}`);
+  // const authorized = true;
   return (
     <div className={styles.container}>
       <Head>
@@ -34,4 +31,13 @@ export default function Home() {
       )}
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const headers = context.req.headers;
+  console.log(`host: ${JSON.stringify(headers, null, 2)}`);
+
+  return {
+    props: { authorized: true },
+  };
 }
