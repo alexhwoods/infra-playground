@@ -51,3 +51,46 @@ resource "kubernetes_deployment" "ledger" {
     }
   }
 }
+
+resource "kubernetes_service" "ledger" {
+  metadata {
+    name = "ledger"
+  }
+  spec {
+    selector = {
+      app     = kubernetes_deployment.ledger.spec[0].template[0].metadata[0].labels.app
+      version = kubernetes_deployment.ledger.spec[0].template[0].metadata[0].labels.version
+    }
+    port {
+      port        = 80
+      target_port = 80
+    }
+  }
+}
+
+resource "kubernetes_ingress" "ledger" {
+  metadata {
+    name = "ledger"
+  }
+
+  spec {
+    backend {
+      service_name = kubernetes_service.ledger.metadata[0].name
+      service_port = kubernetes_service.ledger.spec[0].port[0].target_port
+    }
+
+    rule {
+      host = "internal.atomiccommits.io"
+      http {
+        path {
+          backend {
+            service_name = kubernetes_service.ledger.metadata[0].name
+            service_port = kubernetes_service.ledger.spec[0].port[0].target_port
+          }
+
+          path = "/*"
+        }
+      }
+    }
+  }
+}
